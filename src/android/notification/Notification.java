@@ -45,6 +45,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import com.apple.concurrent.Dispatch.Priority;
+
 import static android.app.AlarmManager.RTC;
 import static android.app.AlarmManager.RTC_WAKEUP;
 import static android.app.PendingIntent.FLAG_CANCEL_CURRENT;
@@ -226,10 +228,12 @@ public final class Notification {
 
             try {
                 switch (options.getPrio()) {
-                    case IMPORTANCE_MIN: case IMPORTANCE_LOW:
+                    //case IMPORTANCE_MIN: case IMPORTANCE_LOW:
+                    case PRIORITY_MIN:
                         mgr.setExact(RTC, time, pi);
                         break;
-                    case IMPORTANCE_MAX: case IMPORTANCE_HIGH:
+                    //case IMPORTANCE_MAX: case IMPORTANCE_HIGH:
+                    case PRIORITY_MAX:
                         if (SDK_INT >= M) {
                             mgr.setExactAndAllowWhileIdle(RTC_WAKEUP, time, pi);
                         } else {
