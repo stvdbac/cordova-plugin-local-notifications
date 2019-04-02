@@ -45,8 +45,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import com.apple.concurrent.Dispatch.Priority;
-
 import static android.app.AlarmManager.RTC;
 import static android.app.AlarmManager.RTC_WAKEUP;
 import static android.app.PendingIntent.FLAG_CANCEL_CURRENT;
